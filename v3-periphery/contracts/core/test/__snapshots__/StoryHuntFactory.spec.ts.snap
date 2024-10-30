@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoryHuntFactory #createPool gas 1`] = `4557092`;
+
+exports[`StoryHuntFactory factory bytecode size 1`] = `24535`;
+
+exports[`StoryHuntFactory pool bytecode size 1`] = `22142`;

@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity =0.7.6;
 
-import './core/interfaces/IStoryHuntFactory.sol';
-import './core/interfaces/IStoryHuntPool.sol';
+import '../core/contracts/interfaces/IStoryHuntFactory.sol';
+import '../core/contracts/interfaces/IStoryHuntPool.sol';
 
 import './PeripheryImmutableState.sol';
 import '../interfaces/IPoolInitializer.sol';
 
 /// @title Creates and initializes V3 Pools
-abstract contract PoolInitializer is WIPoolInitializer, PeripheryImmutableState {
-    /// @inheritdoc WIPoolInitializer
+abstract contract PoolInitializer is IPoolInitializer, PeripheryImmutableState {
+    /// @inheritdoc IPoolInitializer
     function createAndInitializePoolIfNecessary(
         address token0,
         address token1,

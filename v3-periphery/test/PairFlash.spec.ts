@@ -58,22 +58,22 @@ describe('PairFlash test', () => {
   }
 
   const flashFixture = async () => {
-    const { router, tokens, factory, weth9, nft } = await completeFixture(wallets, provider)
+    const { router, tokens, factory, wip9, nft } = await completeFixture(wallets, provider)
     const token0 = tokens[0]
     const token1 = tokens[1]
 
     const flashContractFactory = await ethers.getContractFactory('PairFlash')
-    const flash = (await flashContractFactory.deploy(router.address, factory.address, weth9.address)) as PairFlash
+    const flash = (await flashContractFactory.deploy(router.address, factory.address, wip9.address)) as PairFlash
 
     const quoterFactory = await ethers.getContractFactory('Quoter')
-    const quoter = (await quoterFactory.deploy(factory.address, weth9.address)) as Quoter
+    const quoter = (await quoterFactory.deploy(factory.address, wip9.address)) as Quoter
 
     return {
       token0,
       token1,
       flash,
       factory,
-      weth9,
+      wip9,
       nft,
       quoter,
       router,

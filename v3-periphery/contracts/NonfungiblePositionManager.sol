@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import './core/interfaces/IStoryHuntPool.sol';
-import './core/libraries/FixedPoint128.sol';
-import './core/libraries/FullMath.sol';
+import './core/contracts/interfaces/IStoryHuntPool.sol';
+import './core/contracts/libraries/FixedPoint128.sol';
+import './core/contracts/libraries/FullMath.sol';
 
 import './interfaces/INonfungiblePositionManager.sol';
 import './interfaces/INonfungibleTokenPositionDescriptor.sol';
@@ -72,7 +72,7 @@ contract NonfungiblePositionManager is
         address _factory,
         address _WIP9,
         address _tokenDescriptor_
-    ) ERC721Permit('StoryHunt V3 Positions NFT-V1', 'UNI-V3-POS', '1') PeripheryImmutableState(_factory, _WIP9) {
+    ) ERC721Permit('StoryHunt Positions NFT-V1', 'STH-POS', '1') PeripheryImmutableState(_factory, _WIP9) {
         _tokenDescriptor = _tokenDescriptor_;
     }
 

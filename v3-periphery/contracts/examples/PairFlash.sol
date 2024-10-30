@@ -2,8 +2,8 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import './core/interfaces/callback/IStoryHuntFlashCallback.sol';
-import './core/libraries/LowGasSafeMath.sol';
+import '../core/contracts/interfaces/callback/IStoryHuntFlashCallback.sol';
+import '../core/contracts/libraries/LowGasSafeMath.sol';
 
 import '../base/PeripheryPayments.sol';
 import '../base/PeripheryImmutableState.sol';

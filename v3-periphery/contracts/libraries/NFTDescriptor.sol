@@ -2,14 +2,14 @@
 pragma solidity >=0.7.0;
 pragma abicoder v2;
 
-import './core/interfaces/IStoryHuntPool.sol';
-import './core/libraries/TickMath.sol';
-import './core/libraries/BitMath.sol';
-import './core/libraries/FullMath.sol';
-import '@openzeppelin/contracts/utils/Strings.sol';
-import '@openzeppelin/contracts/math/SafeMath.sol';
-import '@openzeppelin/contracts/math/SignedSafeMath.sol';
-import 'base64-sol/base64.sol';
+import '../core/contracts/interfaces/IStoryHuntPool.sol';
+import '../core/contracts/libraries/TickMath.sol';
+import '../core/contracts/libraries/BitMath.sol';
+import '../core/contracts/libraries/FullMath.sol';
+import '../libraries/openzeppelin/contracts/utils/Strings.sol';
+import '../libraries/openzeppelin/contracts/math/SafeMath.sol';
+import '../libraries/openzeppelin/contracts/math/SignedSafeMath.sol';
+import '../libraries/base64.sol';
 import './HexStrings.sol';
 import './NFTSVG.sol';
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.7.5;
 
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
+// import '../libraries/openzeppelin/contracts/token/ERC20/IERC20.sol';
 
 import '../interfaces/IPeripheryPayments.sol';
 import '../interfaces/external/IWIP9.sol';
@@ -10,12 +10,12 @@ import '../libraries/TransferHelper.sol';
 
 import './PeripheryImmutableState.sol';
 
-abstract contract PeripheryPayments is WIPeripheryPayments, PeripheryImmutableState {
+abstract contract PeripheryPayments is IPeripheryPayments, PeripheryImmutableState {
     receive() external payable {
         require(msg.sender == WIP9, 'Not WIP9');
     }
 
-    /// @inheritdoc WIPeripheryPayments
+    /// @inheritdoc IPeripheryPayments
     function unwrapWIP9(uint256 amountMinimum, address recipient) public payable override {
         uint256 balanceWIP9 = IWIP9(WIP9).balanceOf(address(this));
         require(balanceWIP9 >= amountMinimum, 'Insufficient WIP9');
@@ -26,7 +26,7 @@ abstract contract PeripheryPayments is WIPeripheryPayments, PeripheryImmutableSt
         }
     }
 
-    /// @inheritdoc WIPeripheryPayments
+    /// @inheritdoc IPeripheryPayments
     function sweepToken(
         address token,
         uint256 amountMinimum,
@@ -40,7 +40,7 @@ abstract contract PeripheryPayments is WIPeripheryPayments, PeripheryImmutableSt
         }
     }
 
-    /// @inheritdoc WIPeripheryPayments
+    /// @inheritdoc IPeripheryPayments
     function refundETH() external payable override {
         if (address(this).balance > 0) TransferHelper.safeTransferETH(msg.sender, address(this).balance);
     }

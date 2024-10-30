@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import './core/interfaces/IStoryHuntFactory.sol';
-import './core/interfaces/callback/IStoryHuntMintCallback.sol';
-import './core/libraries/TickMath.sol';
+import '../core/contracts/interfaces/IStoryHuntFactory.sol';
+import '../core/contracts/interfaces/callback/IStoryHuntMintCallback.sol';
+import '../core/contracts/libraries/TickMath.sol';
 
 import '../libraries/PoolAddress.sol';
 import '../libraries/CallbackValidation.sol';

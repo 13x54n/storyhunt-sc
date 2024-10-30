@@ -2,10 +2,10 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import './core/libraries/SafeCast.sol';
-import './core/libraries/TickMath.sol';
-import './core/interfaces/IStoryHuntPool.sol';
-import './core/interfaces/callback/IStoryHuntSwapCallback.sol';
+import '../core/contracts/libraries/SafeCast.sol';
+import '../core/contracts/libraries/TickMath.sol';
+import '../core/contracts/interfaces/IStoryHuntPool.sol';
+import '../core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
 
 import '../interfaces/IQuoter.sol';
 import '../base/PeripheryImmutableState.sol';

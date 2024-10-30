@@ -1,19 +1,20 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.7.5;
 
-import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-import './core/libraries/LowGasSafeMath.sol';
+// import '../interfaces/IERC20.sol';
 
-import './PeripheryPayments.sol';
+import '../core/contracts/libraries/LowGasSafeMath.sol';
+
 import '../interfaces/IPeripheryPaymentsWithFee.sol';
+import './PeripheryPayments.sol';
 
 import '../interfaces/external/IWIP9.sol';
 import '../libraries/TransferHelper.sol';
 
-abstract contract PeripheryPaymentsWithFee is PeripheryPayments, WIPeripheryPaymentsWithFee {
+abstract contract PeripheryPaymentsWithFee is PeripheryPayments, IPeripheryPaymentsWithFee {
     using LowGasSafeMath for uint256;
 
-    /// @inheritdoc WIPeripheryPaymentsWithFee
+    /// @inheritdoc IPeripheryPaymentsWithFee
     function unwrapWIP9WithFee(
         uint256 amountMinimum,
         address recipient,
@@ -33,7 +34,7 @@ abstract contract PeripheryPaymentsWithFee is PeripheryPayments, WIPeripheryPaym
         }
     }
 
-    /// @inheritdoc WIPeripheryPaymentsWithFee
+    /// @inheritdoc IPeripheryPaymentsWithFee
     function sweepTokenWithFee(
         address token,
         uint256 amountMinimum,

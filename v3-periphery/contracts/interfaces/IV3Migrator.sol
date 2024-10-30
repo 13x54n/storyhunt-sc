@@ -8,7 +8,7 @@ import './IPoolInitializer.sol';
 
 /// @title V3 Migrator
 /// @notice Enables migration of liqudity from StoryHunt v2-compatible pairs into StoryHunt v3 pools
-interface IV3Migrator is IMulticall, ISelfPermit, WIPoolInitializer {
+interface IV3Migrator is IMulticall, ISelfPermit, IPoolInitializer {
     struct MigrateParams {
         address pair; // the StoryHunt v2-compatible pair
         uint256 liquidityToMigrate; // expected to be balanceOf(msg.sender)

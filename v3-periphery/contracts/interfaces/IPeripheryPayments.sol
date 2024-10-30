@@ -3,7 +3,7 @@ pragma solidity >=0.7.5;
 
 /// @title Periphery Payments
 /// @notice Functions to ease deposits and withdrawals of ETH
-interface WIPeripheryPayments {
+interface IPeripheryPayments {
     /// @notice Unwraps the contract's WIP9 balance and sends it to recipient as ETH.
     /// @dev The amountMinimum parameter prevents malicious contracts from stealing WIP9 from users.
     /// @param amountMinimum The minimum amount of WIP9 to unwrap

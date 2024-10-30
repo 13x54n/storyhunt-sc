@@ -2,7 +2,7 @@
 pragma solidity >=0.7.5;
 pragma abicoder v2;
 
-import './core/interfaces/callback/IStoryHuntSwapCallback.sol';
+import '../core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
 
 /// @title Router token swapping functionality
 /// @notice Functions for swapping tokens via StoryHunt V3

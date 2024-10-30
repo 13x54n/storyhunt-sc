@@ -2,7 +2,7 @@
 pragma solidity >=0.5.0;
 pragma abicoder v2;
 
-import './core/interfaces/IStoryHuntPool.sol';
+import '../core/contracts/interfaces/IStoryHuntPool.sol';
 
 import '../interfaces/ITickLens.sol';
 

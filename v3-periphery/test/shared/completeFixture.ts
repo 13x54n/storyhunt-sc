@@ -12,14 +12,14 @@ import {
 } from '../../typechain'
 
 const completeFixture: Fixture<{
-  weth9: IWIP9
+  wip9: IWIP9
   factory: IStoryHuntFactory
   router: MockTimeSwapRouter
   nft: MockTimeNonfungiblePositionManager
   nftDescriptor: NonfungibleTokenPositionDescriptor
   tokens: [TestERC20, TestERC20, TestERC20]
 }> = async ([wallet], provider) => {
-  const { weth9, factory, router } = await v3RouterFixture([wallet], provider)
+  const { wip9, factory, router } = await v3RouterFixture([wallet], provider)
 
   const tokenFactory = await ethers.getContractFactory('TestERC20')
   const tokens: [TestERC20, TestERC20, TestERC20] = [
@@ -44,14 +44,14 @@ const completeFixture: Fixture<{
   const positionManagerFactory = await ethers.getContractFactory('MockTimeNonfungiblePositionManager')
   const nft = (await positionManagerFactory.deploy(
     factory.address,
-    weth9.address,
+    wip9.address,
     nftDescriptor.address
   )) as MockTimeNonfungiblePositionManager
 
   tokens.sort((a, b) => (a.address.toLowerCase() < b.address.toLowerCase() ? -1 : 1))
 
   return {
-    weth9,
+    wip9,
     factory,
     router,
     tokens,

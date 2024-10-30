@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity =0.7.6;
 
-import '../core/interfaces/IStoryHuntPool.sol';
+import '../core/contracts/interfaces/IStoryHuntPool.sol';
 import './PoolAddress.sol';
 
 /// @notice Provides validation for callbacks from StoryHunt V3 Pools

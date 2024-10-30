@@ -5,10 +5,10 @@ import '../interfaces/IPeripheryImmutableState.sol';
 
 /// @title Immutable state
 /// @notice Immutable state used by periphery contracts
-abstract contract PeripheryImmutableState is WIPeripheryImmutableState {
-    /// @inheritdoc WIPeripheryImmutableState
+abstract contract PeripheryImmutableState is IPeripheryImmutableState {
+    /// @inheritdoc IPeripheryImmutableState
     address public immutable override factory;
-    /// @inheritdoc WIPeripheryImmutableState
+    /// @inheritdoc IPeripheryImmutableState
     address public immutable override WIP9;
 
     constructor(address _factory, address _WIP9) {

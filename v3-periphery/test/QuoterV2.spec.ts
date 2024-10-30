@@ -21,7 +21,7 @@ describe('QuoterV2', function () {
     tokens: [TestERC20, TestERC20, TestERC20]
     quoter: QuoterV2
   }> = async (wallets, provider) => {
-    const { weth9, factory, router, tokens, nft } = await completeFixture(wallets, provider)
+    const { wip9, factory, router, tokens, nft } = await completeFixture(wallets, provider)
 
     // approve & fund wallets
     for (const token of tokens) {
@@ -32,7 +32,7 @@ describe('QuoterV2', function () {
     }
 
     const quoterFactory = await ethers.getContractFactory('QuoterV2')
-    quoter = (await quoterFactory.deploy(factory.address, weth9.address)) as QuoterV2
+    quoter = (await quoterFactory.deploy(factory.address, wip9.address)) as QuoterV2
 
     return {
       tokens,
@@ -53,7 +53,7 @@ describe('QuoterV2', function () {
     loadFixture = waffle.createFixtureLoader(wallets)
   })
 
-  // helper for getting weth and token balances
+  // helper for getting wip and token balances
   beforeEach('load fixture', async () => {
     ;({ tokens, nft, quoter } = await loadFixture(swapRouterFixture))
   })

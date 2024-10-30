@@ -18,12 +18,12 @@ describe('SwapRouter gas tests', function () {
   let trader: Wallet
 
   const swapRouterFixture: Fixture<{
-    weth9: IWIP9
+    wip9: IWIP9
     router: MockTimeSwapRouter
     tokens: [TestERC20, TestERC20, TestERC20]
     pools: [IStoryHuntPool, IStoryHuntPool, IStoryHuntPool]
   }> = async (wallets, provider) => {
-    const { weth9, factory, router, tokens, nft } = await completeFixture(wallets, provider)
+    const { wip9, factory, router, tokens, nft } = await completeFixture(wallets, provider)
 
     // approve & fund wallets
     for (const token of tokens) {
@@ -63,9 +63,9 @@ describe('SwapRouter gas tests', function () {
     }
 
     async function createPoolWIP9(tokenAddress: string) {
-      await weth9.deposit({ value: liquidity * 2 })
-      await weth9.approve(nft.address, constants.MaxUint256)
-      return createPool(weth9.address, tokenAddress)
+      await wip9.deposit({ value: liquidity * 2 })
+      await wip9.approve(nft.address, constants.MaxUint256)
+      return createPool(wip9.address, tokenAddress)
     }
 
     // create pools
@@ -76,7 +76,7 @@ describe('SwapRouter gas tests', function () {
     const poolAddresses = await Promise.all([
       factory.getPool(tokens[0].address, tokens[1].address, FeeAmount.MEDIUM),
       factory.getPool(tokens[1].address, tokens[2].address, FeeAmount.MEDIUM),
-      factory.getPool(weth9.address, tokens[0].address, FeeAmount.MEDIUM),
+      factory.getPool(wip9.address, tokens[0].address, FeeAmount.MEDIUM),
     ])
 
     const pools = poolAddresses.map((poolAddress) => new ethers.Contract(poolAddress, IStoryHuntPoolABI, wallet)) as [
@@ -86,14 +86,14 @@ describe('SwapRouter gas tests', function () {
     ]
 
     return {
-      weth9,
+      wip9,
       router,
       tokens,
       pools,
     }
   }
 
-  let weth9: IWIP9
+  let wip9: IWIP9
   let router: MockTimeSwapRouter
   let tokens: [TestERC20, TestERC20, TestERC20]
   let pools: [IStoryHuntPool, IStoryHuntPool, IStoryHuntPool]
@@ -108,7 +108,7 @@ describe('SwapRouter gas tests', function () {
   })
 
   beforeEach('load fixture', async () => {
-    ;({ router, weth9, tokens, pools } = await loadFixture(swapRouterFixture))
+    ;({ router, wip9, tokens, pools } = await loadFixture(swapRouterFixture))
   })
 
   async function exactInput(
@@ -116,8 +116,8 @@ describe('SwapRouter gas tests', function () {
     amountIn: number = 2,
     amountOutMinimum: number = 1
   ): Promise<ContractTransaction> {
-    const inputIsWIP = weth9.address === tokens[0]
-    const outputIsWIP9 = tokens[tokens.length - 1] === weth9.address
+    const inputIsWIP = wip9.address === tokens[0]
+    const outputIsWIP9 = tokens[tokens.length - 1] === wip9.address
 
     const value = inputIsWIP ? amountIn : 0
 
@@ -145,8 +145,8 @@ describe('SwapRouter gas tests', function () {
     amountOutMinimum: number = 1,
     sqrtPriceLimitX96?: BigNumber
   ): Promise<ContractTransaction> {
-    const inputIsWIP = weth9.address === tokenIn
-    const outputIsWIP9 = tokenOut === weth9.address
+    const inputIsWIP = wip9.address === tokenIn
+    const outputIsWIP9 = tokenOut === wip9.address
 
     const value = inputIsWIP ? amountIn : 0
 
@@ -174,8 +174,8 @@ describe('SwapRouter gas tests', function () {
     const amountInMaximum = 10 // we don't care
     const amountOut = 1
 
-    const inputIsWIP9 = tokens[0] === weth9.address
-    const outputIsWIP9 = tokens[tokens.length - 1] === weth9.address
+    const inputIsWIP9 = tokens[0] === wip9.address
+    const outputIsWIP9 = tokens[tokens.length - 1] === wip9.address
 
     const value = inputIsWIP9 ? amountInMaximum : 0
 
@@ -201,8 +201,8 @@ describe('SwapRouter gas tests', function () {
     amountInMaximum: number = 3,
     sqrtPriceLimitX96?: BigNumber
   ): Promise<ContractTransaction> {
-    const inputIsWIP9 = tokenIn === weth9.address
-    const outputIsWIP9 = tokenOut === weth9.address
+    const inputIsWIP9 = tokenIn === wip9.address
+    const outputIsWIP9 = tokenOut === wip9.address
 
     const value = inputIsWIP9 ? amountInMaximum : 0
 
@@ -230,8 +230,8 @@ describe('SwapRouter gas tests', function () {
     await exactInput([tokens[1].address, tokens[0].address], 1, 0)
     await exactInput([tokens[1].address, tokens[2].address], 1, 0)
     await exactInput([tokens[2].address, tokens[1].address], 1, 0)
-    await exactInput([tokens[0].address, weth9.address], 1, 0)
-    await exactInput([weth9.address, tokens[0].address], 1, 0)
+    await exactInput([tokens[0].address, wip9.address], 1, 0)
+    await exactInput([wip9.address, tokens[0].address], 1, 0)
   })
 
   beforeEach('ensure feeGrowthGlobals are >0', async () => {
@@ -286,8 +286,8 @@ describe('SwapRouter gas tests', function () {
     it('WIP9 -> 0', async () => {
       await snapshotGasCost(
         exactInput(
-          [weth9.address, tokens[0].address],
-          weth9.address.toLowerCase() < tokens[0].address.toLowerCase() ? 2 : 3
+          [wip9.address, tokens[0].address],
+          wip9.address.toLowerCase() < tokens[0].address.toLowerCase() ? 2 : 3
         )
       )
     })
@@ -295,17 +295,17 @@ describe('SwapRouter gas tests', function () {
     it('0 -> WIP9', async () => {
       await snapshotGasCost(
         exactInput(
-          [tokens[0].address, weth9.address],
-          tokens[0].address.toLowerCase() < weth9.address.toLowerCase() ? 2 : 3
+          [tokens[0].address, wip9.address],
+          tokens[0].address.toLowerCase() < wip9.address.toLowerCase() ? 2 : 3
         )
       )
     })
 
     it('2 trades (via router)', async () => {
-      await weth9.connect(trader).deposit({ value: 3 })
-      await weth9.connect(trader).approve(router.address, constants.MaxUint256)
+      await wip9.connect(trader).deposit({ value: 3 })
+      await wip9.connect(trader).approve(router.address, constants.MaxUint256)
       const swap0 = {
-        path: encodePath([weth9.address, tokens[0].address], [FeeAmount.MEDIUM]),
+        path: encodePath([wip9.address, tokens[0].address], [FeeAmount.MEDIUM]),
         recipient: constants.AddressZero,
         deadline: 1,
         amountIn: 3,
@@ -330,10 +330,10 @@ describe('SwapRouter gas tests', function () {
     })
 
     it('3 trades (directly to sender)', async () => {
-      await weth9.connect(trader).deposit({ value: 3 })
-      await weth9.connect(trader).approve(router.address, constants.MaxUint256)
+      await wip9.connect(trader).deposit({ value: 3 })
+      await wip9.connect(trader).approve(router.address, constants.MaxUint256)
       const swap0 = {
-        path: encodePath([weth9.address, tokens[0].address], [FeeAmount.MEDIUM]),
+        path: encodePath([wip9.address, tokens[0].address], [FeeAmount.MEDIUM]),
         recipient: trader.address,
         deadline: 1,
         amountIn: 3,
@@ -367,10 +367,10 @@ describe('SwapRouter gas tests', function () {
   })
 
   it('3 trades (directly to sender)', async () => {
-    await weth9.connect(trader).deposit({ value: 3 })
-    await weth9.connect(trader).approve(router.address, constants.MaxUint256)
+    await wip9.connect(trader).deposit({ value: 3 })
+    await wip9.connect(trader).approve(router.address, constants.MaxUint256)
     const swap0 = {
-      path: encodePath([weth9.address, tokens[0].address], [FeeAmount.MEDIUM]),
+      path: encodePath([wip9.address, tokens[0].address], [FeeAmount.MEDIUM]),
       recipient: trader.address,
       deadline: 1,
       amountIn: 3,
@@ -401,9 +401,9 @@ describe('SwapRouter gas tests', function () {
     it('WIP9 -> 0', async () => {
       await snapshotGasCost(
         exactInputSingle(
-          weth9.address,
+          wip9.address,
           tokens[0].address,
-          weth9.address.toLowerCase() < tokens[0].address.toLowerCase() ? 2 : 3
+          wip9.address.toLowerCase() < tokens[0].address.toLowerCase() ? 2 : 3
         )
       )
     })
@@ -412,8 +412,8 @@ describe('SwapRouter gas tests', function () {
       await snapshotGasCost(
         exactInputSingle(
           tokens[0].address,
-          weth9.address,
-          tokens[0].address.toLowerCase() < weth9.address.toLowerCase() ? 2 : 3
+          wip9.address,
+          tokens[0].address.toLowerCase() < wip9.address.toLowerCase() ? 2 : 3
         )
       )
     })
@@ -429,11 +429,11 @@ describe('SwapRouter gas tests', function () {
     })
 
     it('WIP9 -> 0', async () => {
-      await snapshotGasCost(exactOutput([weth9.address, tokens[0].address]))
+      await snapshotGasCost(exactOutput([wip9.address, tokens[0].address]))
     })
 
     it('0 -> WIP9', async () => {
-      await snapshotGasCost(exactOutput([tokens[0].address, weth9.address]))
+      await snapshotGasCost(exactOutput([tokens[0].address, wip9.address]))
     })
   })
 
@@ -443,11 +443,11 @@ describe('SwapRouter gas tests', function () {
     })
 
     it('WIP9 -> 0', async () => {
-      await snapshotGasCost(exactOutputSingle(weth9.address, tokens[0].address))
+      await snapshotGasCost(exactOutputSingle(wip9.address, tokens[0].address))
     })
 
     it('0 -> WIP9', async () => {
-      await snapshotGasCost(exactOutputSingle(tokens[0].address, weth9.address))
+      await snapshotGasCost(exactOutputSingle(tokens[0].address, wip9.address))
     })
   })
 })
