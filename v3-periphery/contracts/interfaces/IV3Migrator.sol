@@ -4,7 +4,7 @@ pragma abicoder v2;
 
 import './IMulticall.sol';
 import './ISelfPermit.sol';
-import './WIPoolInitializer.sol';
+import './IPoolInitializer.sol';
 
 /// @title V3 Migrator
 /// @notice Enables migration of liqudity from Uniswap v2-compatible pairs into Uniswap v3 pools

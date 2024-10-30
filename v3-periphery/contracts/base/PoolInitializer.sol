@@ -5,7 +5,7 @@ import '@uniswap/v3-core/contracts/interfaces/IStoryHuntFactory.sol';
 import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
 
 import './PeripheryImmutableState.sol';
-import '../interfaces/WIPoolInitializer.sol';
+import '../interfaces/IPoolInitializer.sol';
 
 /// @title Creates and initializes V3 Pools
 abstract contract PoolInitializer is WIPoolInitializer, PeripheryImmutableState {

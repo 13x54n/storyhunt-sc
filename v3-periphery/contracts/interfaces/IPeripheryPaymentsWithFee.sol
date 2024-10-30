@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.7.5;
 
-import './WIPeripheryPayments.sol';
+import './IPeripheryPayments.sol';
 
 /// @title Periphery Payments
 /// @notice Functions to ease deposits and withdrawals of ETH

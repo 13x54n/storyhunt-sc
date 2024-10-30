@@ -3,7 +3,7 @@ pragma solidity >=0.7.5;
 
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 
-import '../interfaces/WIPeripheryPayments.sol';
+import '../interfaces/IPeripheryPayments.sol';
 import '../interfaces/external/IWIP9.sol';
 
 import '../libraries/TransferHelper.sol';

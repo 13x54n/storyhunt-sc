@@ -5,7 +5,7 @@ import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 import '@uniswap/v3-core/contracts/libraries/LowGasSafeMath.sol';
 
 import './PeripheryPayments.sol';
-import '../interfaces/WIPeripheryPaymentsWithFee.sol';
+import '../interfaces/IPeripheryPaymentsWithFee.sol';
 
 import '../interfaces/external/IWIP9.sol';
 import '../libraries/TransferHelper.sol';
