@@ -1,6 +1,7 @@
 # storyhunt-sc
 
-To-do:
-Periphery consists of @storyhunt npm packages for interfaces so need to deploy our own @storyhunt packages
-
 StoryHuntFactory: 0x7d17CEe0E884f8F686415e9f9D0a2D980182a311
+SwapRouter: 0x8a1422e697f933B3147A60f2be9399e846681384
+Wrapped IP: 0xFCc61d21F57FB390b3809E5FA62fe77148BE368C
+Quoter: 0x919F805060b053458668d198e08197130504407A
+
