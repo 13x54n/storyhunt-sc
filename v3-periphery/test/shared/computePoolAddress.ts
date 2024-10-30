@@ -1,4 +1,4 @@
-import { bytecode } from '@uniswap/v3-core/artifacts/contracts/StoryHuntPool.sol/StoryHuntPool.json'
+import { bytecode } from '@storyhunt/v3-core/artifacts/contracts/StoryHuntPool.sol/StoryHuntPool.json'
 import { utils } from 'ethers'
 
 export const POOL_BYTECODE_HASH = utils.keccak256(bytecode)

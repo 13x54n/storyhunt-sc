@@ -352,16 +352,16 @@ License text copyright (c) 2017 MariaDB Corporation Ab, All Rights Reserved.
 
 Parameters
 
-Licensor:             Uniswap Labs
+Licensor:             StoryHunt Labs
 
-Licensed Work:        Uniswap V3 Core
-                      The Licensed Work is (c) 2021 Uniswap Labs
+Licensed Work:        StoryHunt V3 Core
+                      The Licensed Work is (c) 2021 StoryHunt Labs
 
 Additional Use Grant: Any uses listed and defined at
-                      v3-core-license-grants.uniswap.eth
+                      v3-core-license-grants.storyhunt.eth
 
 Change Date:          The earlier of 2023-04-01 or a date specified at
-                      v3-core-license-date.uniswap.eth
+                      v3-core-license-date.storyhunt.eth
 
 Change License:       GNU General Public License v2.0 or later
 

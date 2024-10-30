@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
-import '@uniswap/v3-core/contracts/libraries/FixedPoint128.sol';
-import '@uniswap/v3-core/contracts/libraries/FullMath.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import '@storyhunt/v3-core/contracts/libraries/FixedPoint128.sol';
+import '@storyhunt/v3-core/contracts/libraries/FullMath.sol';
 
 import './interfaces/INonfungiblePositionManager.sol';
 import './interfaces/INonfungibleTokenPositionDescriptor.sol';
@@ -19,7 +19,7 @@ import './base/SelfPermit.sol';
 import './base/PoolInitializer.sol';
 
 /// @title NFT positions
-/// @notice Wraps Uniswap V3 positions in the ERC721 non-fungible token interface
+/// @notice Wraps StoryHunt V3 positions in the ERC721 non-fungible token interface
 contract NonfungiblePositionManager is
     INonfungiblePositionManager,
     Multicall,
@@ -30,7 +30,7 @@ contract NonfungiblePositionManager is
     PeripheryValidation,
     SelfPermit
 {
-    // details about the uniswap position
+    // details about the storyhunt position
     struct Position {
         // the nonce for permits
         uint96 nonce;
@@ -72,7 +72,7 @@ contract NonfungiblePositionManager is
         address _factory,
         address _WIP9,
         address _tokenDescriptor_
-    ) ERC721Permit('Uniswap V3 Positions NFT-V1', 'UNI-V3-POS', '1') PeripheryImmutableState(_factory, _WIP9) {
+    ) ERC721Permit('StoryHunt V3 Positions NFT-V1', 'UNI-V3-POS', '1') PeripheryImmutableState(_factory, _WIP9) {
         _tokenDescriptor = _tokenDescriptor_;
     }
 

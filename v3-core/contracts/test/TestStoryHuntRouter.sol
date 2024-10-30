@@ -49,7 +49,7 @@ contract TestStoryHuntRouter is IStoryHuntSwapCallback {
 
     event SwapCallback(int256 amount0Delta, int256 amount1Delta);
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes calldata data

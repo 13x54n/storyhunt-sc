@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntFactory.sol';
-import '@uniswap/v3-core/contracts/interfaces/callback/IStoryHuntMintCallback.sol';
-import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntFactory.sol';
+import '@storyhunt/v3-core/contracts/interfaces/callback/IStoryHuntMintCallback.sol';
+import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
 
 import '../libraries/PoolAddress.sol';
 import '../libraries/CallbackValidation.sol';
@@ -14,7 +14,7 @@ import './PeripheryPayments.sol';
 import './PeripheryImmutableState.sol';
 
 /// @title Liquidity management functions
-/// @notice Internal functions for safely managing liquidity in Uniswap V3
+/// @notice Internal functions for safely managing liquidity in StoryHunt V3
 abstract contract LiquidityManagement is IStoryHuntMintCallback, PeripheryImmutableState, PeripheryPayments {
     struct MintCallbackData {
         PoolAddress.PoolKey poolKey;
@@ -22,7 +22,7 @@ abstract contract LiquidityManagement is IStoryHuntMintCallback, PeripheryImmuta
     }
 
     /// @inheritdoc IStoryHuntMintCallback
-    function uniswapV3MintCallback(
+    function storyhuntV3MintCallback(
         uint256 amount0Owed,
         uint256 amount1Owed,
         bytes calldata data

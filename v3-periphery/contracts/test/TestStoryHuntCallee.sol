@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity =0.7.6;
 
-import '@uniswap/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
-import '@uniswap/v3-core/contracts/libraries/SafeCast.sol';
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import '@storyhunt/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
+import '@storyhunt/v3-core/contracts/libraries/SafeCast.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 
 contract TestStoryHuntCallee is IStoryHuntSwapCallback {
@@ -45,7 +45,7 @@ contract TestStoryHuntCallee is IStoryHuntSwapCallback {
         IStoryHuntPool(pool).swap(recipient, false, -amount0Out.toInt256(), sqrtPriceLimitX96, abi.encode(msg.sender));
     }
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes calldata data

@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/libraries/SafeCast.sol';
-import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import '@storyhunt/v3-core/contracts/libraries/SafeCast.sol';
+import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
 
 import './interfaces/ISwapRouter.sol';
 import './base/PeripheryImmutableState.sol';
@@ -17,8 +17,8 @@ import './libraries/PoolAddress.sol';
 import './libraries/CallbackValidation.sol';
 import './interfaces/external/IWIP9.sol';
 
-/// @title Uniswap V3 Swap Router
-/// @notice Router for stateless execution of swaps against Uniswap V3
+/// @title StoryHunt V3 Swap Router
+/// @notice Router for stateless execution of swaps against StoryHunt V3
 contract SwapRouter is
     ISwapRouter,
     PeripheryImmutableState,
@@ -54,7 +54,7 @@ contract SwapRouter is
     }
 
     /// @inheritdoc IStoryHuntSwapCallback
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes calldata _data

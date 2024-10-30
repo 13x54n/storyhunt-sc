@@ -69,7 +69,7 @@ contract TestStoryHuntCallee is IStoryHuntMintCallback, IStoryHuntSwapCallback, 
 
     event SwapCallback(int256 amount0Delta, int256 amount1Delta);
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes calldata data
@@ -100,7 +100,7 @@ contract TestStoryHuntCallee is IStoryHuntMintCallback, IStoryHuntSwapCallback, 
 
     event MintCallback(uint256 amount0Owed, uint256 amount1Owed);
 
-    function uniswapV3MintCallback(
+    function storyhuntV3MintCallback(
         uint256 amount0Owed,
         uint256 amount1Owed,
         bytes calldata data
@@ -127,7 +127,7 @@ contract TestStoryHuntCallee is IStoryHuntMintCallback, IStoryHuntSwapCallback, 
         IStoryHuntPool(pool).flash(recipient, amount0, amount1, abi.encode(msg.sender, pay0, pay1));
     }
 
-    function uniswapV3FlashCallback(
+    function storyhuntV3FlashCallback(
         uint256 fee0,
         uint256 fee1,
         bytes calldata data

@@ -8,8 +8,8 @@ import './NoDelegateCall.sol';
 
 import './StoryHuntPool.sol';
 
-/// @title Canonical Uniswap V3 factory
-/// @notice Deploys Uniswap V3 pools and manages ownership and control over pool protocol fees
+/// @title Canonical StoryHunt V3 factory
+/// @notice Deploys StoryHunt V3 pools and manages ownership and control over pool protocol fees
 contract StoryHuntFactory is IStoryHuntFactory, StoryHuntPoolDeployer, NoDelegateCall {
     /// @inheritdoc IStoryHuntFactory
     address public override owner;

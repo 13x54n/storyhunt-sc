@@ -14,7 +14,7 @@ contract TestStoryHuntReentrantCallee is IStoryHuntSwapCallback {
         IStoryHuntPool(pool).swap(address(0), false, 1, TickMath.MAX_SQRT_RATIO - 1, new bytes(0));
     }
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256,
         int256,
         bytes calldata

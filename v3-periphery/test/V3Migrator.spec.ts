@@ -2,7 +2,7 @@ import { Fixture } from 'ethereum-waffle'
 import { constants, Contract, Wallet } from 'ethers'
 import { ethers, waffle } from 'hardhat'
 import {
-  IUniswapV2Pair,
+  IStoryHuntV2Pair,
   IStoryHuntFactory,
   IWIP9,
   MockTimeNonfungiblePositionManager,
@@ -12,7 +12,7 @@ import {
 import completeFixture from './shared/completeFixture'
 import { v2FactoryFixture } from './shared/externalFixtures'
 
-import { abi as PAIR_V2_ABI } from '@uniswap/v2-core/build/UniswapV2Pair.json'
+import { abi as PAIR_V2_ABI } from '@storyhunt/v2-core/build/StoryHuntV2Pair.json'
 import { expect } from 'chai'
 import { FeeAmount } from './shared/constants'
 import { encodePriceSqrt } from './shared/encodePriceSqrt'
@@ -63,7 +63,7 @@ describe('V3Migrator', () => {
   let weth9: IWIP9
   let nft: MockTimeNonfungiblePositionManager
   let migrator: V3Migrator
-  let pair: IUniswapV2Pair
+  let pair: IStoryHuntV2Pair
 
   let loadFixture: ReturnType<typeof waffle.createFixtureLoader>
 
@@ -85,7 +85,7 @@ describe('V3Migrator', () => {
 
     const pairAddress = await factoryV2.getPair(token.address, weth9.address)
 
-    pair = new ethers.Contract(pairAddress, PAIR_V2_ABI, wallet) as IUniswapV2Pair
+    pair = new ethers.Contract(pairAddress, PAIR_V2_ABI, wallet) as IStoryHuntV2Pair
 
     await token.transfer(pair.address, 10000)
     await weth9.transfer(pair.address, 10000)

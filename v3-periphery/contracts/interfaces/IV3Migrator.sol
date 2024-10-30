@@ -7,10 +7,10 @@ import './ISelfPermit.sol';
 import './IPoolInitializer.sol';
 
 /// @title V3 Migrator
-/// @notice Enables migration of liqudity from Uniswap v2-compatible pairs into Uniswap v3 pools
+/// @notice Enables migration of liqudity from StoryHunt v2-compatible pairs into StoryHunt v3 pools
 interface IV3Migrator is IMulticall, ISelfPermit, WIPoolInitializer {
     struct MigrateParams {
-        address pair; // the Uniswap v2-compatible pair
+        address pair; // the StoryHunt v2-compatible pair
         uint256 liquidityToMigrate; // expected to be balanceOf(msg.sender)
         uint8 percentageToMigrate; // represented as a numerator over 100
         address token0;

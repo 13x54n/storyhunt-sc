@@ -2,10 +2,10 @@
 pragma solidity >=0.7.5;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
+import '@storyhunt/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
 
 /// @title Router token swapping functionality
-/// @notice Functions for swapping tokens via Uniswap V3
+/// @notice Functions for swapping tokens via StoryHunt V3
 interface ISwapRouter is IStoryHuntSwapCallback {
     struct ExactInputSingleParams {
         address tokenIn;

@@ -2,11 +2,11 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@uniswap/v3-core/contracts/libraries/SafeCast.sol';
-import '@uniswap/v3-core/contracts/libraries/TickMath.sol';
-import '@uniswap/v3-core/contracts/libraries/TickBitmap.sol';
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
-import '@uniswap/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
+import '@storyhunt/v3-core/contracts/libraries/SafeCast.sol';
+import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
+import '@storyhunt/v3-core/contracts/libraries/TickBitmap.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import '@storyhunt/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
 
 import '../interfaces/IQuoterV2.sol';
 import '../base/PeripheryImmutableState.sol';
@@ -38,7 +38,7 @@ contract QuoterV2 is IQuoterV2, IStoryHuntSwapCallback, PeripheryImmutableState 
     }
 
     /// @inheritdoc IStoryHuntSwapCallback
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes memory path

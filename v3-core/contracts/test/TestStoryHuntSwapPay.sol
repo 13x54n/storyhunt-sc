@@ -25,7 +25,7 @@ contract TestStoryHuntSwapPay is IStoryHuntSwapCallback {
         );
     }
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256,
         int256,
         bytes calldata data

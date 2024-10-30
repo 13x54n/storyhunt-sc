@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
-import '@uniswap/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
 
 pragma solidity >=0.6.0;
 

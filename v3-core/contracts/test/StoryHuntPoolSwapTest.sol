@@ -34,7 +34,7 @@ contract StoryHuntPoolSwapTest is IStoryHuntSwapCallback {
         (nextSqrtRatio, , , , , , ) = IStoryHuntPool(pool).slot0();
     }
 
-    function uniswapV3SwapCallback(
+    function storyhuntV3SwapCallback(
         int256 amount0Delta,
         int256 amount1Delta,
         bytes calldata data
