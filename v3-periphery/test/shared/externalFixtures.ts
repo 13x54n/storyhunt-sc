@@ -1,7 +1,7 @@
 import {
   abi as FACTORY_ABI,
   bytecode as FACTORY_BYTECODE,
-} from '@storyhunt/v3-core/artifacts/contracts/StoryHuntFactory.sol/StoryHuntFactory.json'
+} from './storyhunt-core/artifacts/contracts/StoryHuntFactory.sol/StoryHuntFactory.json'
 import { abi as FACTORY_V2_ABI, bytecode as FACTORY_V2_BYTECODE } from '@storyhunt/v2-core/build/StoryHuntV2Factory.json'
 import { Fixture } from 'ethereum-waffle'
 import { ethers, waffle } from 'hardhat'

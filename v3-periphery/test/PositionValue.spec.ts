@@ -20,7 +20,7 @@ import snapshotGasCost from './shared/snapshotGasCost'
 
 import { expect } from './shared/expect'
 
-import { abi as IStoryHuntPoolABI } from '@storyhunt/v3-core/artifacts/contracts/interfaces/IStoryHuntPool.sol/IStoryHuntPool.json'
+import { abi as IStoryHuntPoolABI } from './storyhunt-core/artifacts/contracts/interfaces/IStoryHuntPool.sol/IStoryHuntPool.json'
 
 describe('PositionValue', async () => {
   const [...wallets] = waffle.provider.getWallets()

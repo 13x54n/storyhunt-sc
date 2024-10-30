@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 pragma solidity >=0.5.0 <0.8.0;
 
-import '@storyhunt/v3-core/contracts/libraries/FullMath.sol';
-import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import './core/libraries/FullMath.sol';
+import './core/libraries/TickMath.sol';
+import './core/interfaces/IStoryHuntPool.sol';
 
 /// @title Oracle library
 /// @notice Provides functions to integrate with V3 pool oracle

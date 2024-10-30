@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
-import '@storyhunt/v3-core/contracts/libraries/FixedPoint128.sol';
-import '@storyhunt/v3-core/contracts/libraries/FullMath.sol';
+import './core/interfaces/IStoryHuntPool.sol';
+import './core/libraries/FixedPoint128.sol';
+import './core/libraries/FullMath.sol';
 
 import './interfaces/INonfungiblePositionManager.sol';
 import './interfaces/INonfungibleTokenPositionDescriptor.sol';

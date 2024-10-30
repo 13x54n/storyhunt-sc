@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity =0.7.6;
 
-import '@storyhunt/v3-core/contracts/interfaces/callback/IStoryHuntSwapCallback.sol';
-import '@storyhunt/v3-core/contracts/libraries/SafeCast.sol';
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import './core/interfaces/callback/IStoryHuntSwapCallback.sol';
+import './core/libraries/SafeCast.sol';
+import './core/interfaces/IStoryHuntPool.sol';
 import '@openzeppelin/contracts/token/ERC20/IERC20.sol';
 
 contract TestStoryHuntCallee is IStoryHuntSwapCallback {

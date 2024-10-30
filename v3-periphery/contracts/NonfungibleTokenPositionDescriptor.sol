@@ -2,8 +2,8 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
-import '@storyhunt/lib/contracts/libraries/SafeERC20Namer.sol';
+import './core/interfaces/IStoryHuntPool.sol';
+import './libraries/SafeERC20Namer.sol';
 
 import './libraries/ChainId.sol';
 import './interfaces/INonfungiblePositionManager.sol';

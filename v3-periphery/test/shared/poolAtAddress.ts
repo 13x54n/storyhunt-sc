@@ -1,4 +1,4 @@
-import { abi as POOL_ABI } from '@storyhunt/v3-core/artifacts/contracts/StoryHuntPool.sol/StoryHuntPool.json'
+import { abi as POOL_ABI } from './storyhunt-core/artifacts/contracts/StoryHuntPool.sol/StoryHuntPool.json'
 import { Contract, Wallet } from 'ethers'
 import { IStoryHuntPool } from '../../typechain'
 

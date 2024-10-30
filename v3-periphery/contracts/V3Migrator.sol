@@ -2,7 +2,7 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@storyhunt/v3-core/contracts/libraries/LowGasSafeMath.sol';
+import './core/libraries/LowGasSafeMath.sol';
 import '@storyhunt/v2-core/contracts/interfaces/IStoryHuntV2Pair.sol';
 
 import './interfaces/INonfungiblePositionManager.sol';

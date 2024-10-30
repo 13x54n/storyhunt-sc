@@ -1,6 +1,6 @@
 # Deployment addresses
 
-The latest version of `@storyhunt/v3-core`, `@storyhunt/v3-periphery`, `@storyhunt/swap-router-contracts`, and `@storyhunt/v3-staker` are deployed at the addresses listed below. Integrators should **no longer assume that they are deployed to the same addresses across chains** and be extremely careful to confirm mappings below.
+The latest version of `./storyhunt-core`, `@storyhunt/v3-periphery`, `@storyhunt/swap-router-contracts`, and `@storyhunt/v3-staker` are deployed at the addresses listed below. Integrators should **no longer assume that they are deployed to the same addresses across chains** and be extremely careful to confirm mappings below.
 
 | Contract                                                                                                                                                     | Mainnet, Polygon, Optimism, Arbitrum, Testnets Address | Celo Address                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | -------------------------------------------- |
@@ -18,7 +18,7 @@ The latest version of `@storyhunt/v3-core`, `@storyhunt/v3-periphery`, `@storyhu
 
 These addresses are final and were deployed from these npm package versions:
 
-- `@storyhunt/v3-core`: [`1.0.0`](https://github.com/StoryHunt/storyhunt-v3-core/tree/v1.0.0)
+- `./storyhunt-core`: [`1.0.0`](https://github.com/StoryHunt/storyhunt-v3-core/tree/v1.0.0)
 - `@storyhunt/v3-periphery`: [`1.0.0`](https://github.com/StoryHunt/storyhunt-v3-periphery/tree/v1.0.0)
 
 The source code is verified with Etherscan on all networks, for all contracts except `StoryHuntPool`.

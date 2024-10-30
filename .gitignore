@@ -1,1 +1,3 @@
 *.lockb
+*.lock
+*-lock.json

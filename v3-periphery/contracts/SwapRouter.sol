@@ -2,9 +2,9 @@
 pragma solidity =0.7.6;
 pragma abicoder v2;
 
-import '@storyhunt/v3-core/contracts/libraries/SafeCast.sol';
-import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
+import './core/libraries/SafeCast.sol';
+import './core/libraries/TickMath.sol';
+import './core/interfaces/IStoryHuntPool.sol';
 
 import './interfaces/ISwapRouter.sol';
 import './base/PeripheryImmutableState.sol';

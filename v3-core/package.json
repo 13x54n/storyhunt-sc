@@ -1,12 +1,11 @@
 {
-  "name": "@storyhunt/v3-core",
-  "description": "🦄 Core smart contracts of StoryHunt V3",
+  "name": "storyhunt-core",
+  "description": "🦄 Core smart contracts of StoryHunt",
   "license": "BUSL-1.1",
   "publishConfig": {
     "access": "public"
   },
   "version": "1.0.1",
-  "homepage": "https://storyhunt.org",
   "keywords": [
     "storyhunt",
     "core",
@@ -14,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/StoryHunt/storyhunt-v3-core"
+    "url": "https://github.com/13x54n/storyhunt-sc/tree/main/v3-core"
   },
   "files": [
     "contracts/interfaces",

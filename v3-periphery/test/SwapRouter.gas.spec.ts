@@ -1,4 +1,4 @@
-import { abi as IStoryHuntPoolABI } from '@storyhunt/v3-core/artifacts/contracts/interfaces/IStoryHuntPool.sol/IStoryHuntPool.json'
+import { abi as IStoryHuntPoolABI } from './storyhunt-core/artifacts/contracts/interfaces/IStoryHuntPool.sol/IStoryHuntPool.json'
 import { Fixture } from 'ethereum-waffle'
 import { BigNumber, constants, ContractTransaction, Wallet } from 'ethers'
 import { ethers, waffle } from 'hardhat'

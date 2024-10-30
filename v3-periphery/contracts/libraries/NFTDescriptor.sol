@@ -2,10 +2,10 @@
 pragma solidity >=0.7.0;
 pragma abicoder v2;
 
-import '@storyhunt/v3-core/contracts/interfaces/IStoryHuntPool.sol';
-import '@storyhunt/v3-core/contracts/libraries/TickMath.sol';
-import '@storyhunt/v3-core/contracts/libraries/BitMath.sol';
-import '@storyhunt/v3-core/contracts/libraries/FullMath.sol';
+import './core/interfaces/IStoryHuntPool.sol';
+import './core/libraries/TickMath.sol';
+import './core/libraries/BitMath.sol';
+import './core/libraries/FullMath.sol';
 import '@openzeppelin/contracts/utils/Strings.sol';
 import '@openzeppelin/contracts/math/SafeMath.sol';
 import '@openzeppelin/contracts/math/SignedSafeMath.sol';
